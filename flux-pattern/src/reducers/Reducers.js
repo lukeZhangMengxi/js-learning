@@ -12,7 +12,7 @@ function todo(state, action) {
       return state
   }
 }
-function todos(state = [], action) {
+function aList(state = [], action) {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -23,7 +23,7 @@ function todos(state = [], action) {
       return state
   }
 }
-const todoApp = combineReducers({
-  todos
+const rootReducer = combineReducers({
+  aList
 })
-export default todoApp
+export default rootReducer

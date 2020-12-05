@@ -5,9 +5,9 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import App from './App.jsx'
-import todoApp from './reducers/Reducers'
+import rootReducer from './reducers/Reducers'
 
-let store = createStore(todoApp)
+let store = createStore(rootReducer)
 let rootElement = document.getElementById('root')
 
 ReactDOM.render(
@@ -17,3 +17,5 @@ ReactDOM.render(
 
   rootElement
 )
+
+export default store;

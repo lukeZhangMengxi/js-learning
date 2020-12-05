@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
+import store from '../index.js'
 
-export default class AddTodo extends Component {
+export default class InputUI extends Component {
   render() {
     return (
       <div>
@@ -16,6 +17,7 @@ export default class AddTodo extends Component {
     const node = this.refs.input
     const text = node.value.trim()
     this.props.onAddClick(text)
+    console.log(store.getState())
     node.value = ''
   }
 }
