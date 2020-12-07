@@ -5,10 +5,14 @@ export default class OutputListElement extends Component {
   render() {
     return (
       <li>
-        {this.props.uuid} : {this.props.text} <button onClick={() => {
-          this.props.deleteCallback(this.props.uuid);
-        }}>Delete</button>
+        {this.props.id} : {this.props.text}
+        <button onClick={() => this.handleDeleteClick()}>Delete</button>
       </li>
     )
+  }
+
+  handleDeleteClick() {
+    this.props.onDeleteClick(this.props.id);
+    this.props.updateCallback();
   }
 }
