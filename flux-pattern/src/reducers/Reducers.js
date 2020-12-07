@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { ADD_TODO } from '../actions/Actions'
+import { v4 as uuidv4 } from 'uuid';
 
 function todo(state, action) {
   switch (action.type) {
@@ -7,6 +8,7 @@ function todo(state, action) {
       return {
         id: action.id,
         text: action.text,
+        uuid: uuidv4(),
       }
     default:
       return state
