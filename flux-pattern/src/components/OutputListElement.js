@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
 export default class OutputListElement extends Component {
 
@@ -6,9 +6,18 @@ export default class OutputListElement extends Component {
     return (
       <li>
         {this.props.id} : {this.props.text}
+        <br />
+        <input type='text' ref='input' />
+        <button onClick={() => this.handleUpdateClick()}>Update</button>
         <button onClick={() => this.handleDeleteClick()}>Delete</button>
       </li>
     )
+  }
+
+  handleUpdateClick() {
+    this.props.onUpdateClick(this.props.id, this.refs.input.value.trim());
+    this.props.updateCallback();
+    this.refs.input.value = '';
   }
 
   handleDeleteClick() {

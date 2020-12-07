@@ -9,6 +9,7 @@ export default class OutputList extends Component {
         {this.props.elementList.map(element =>
           <OutputListElement
             onDeleteClick={this.props.onDeleteClick}
+            onUpdateClick={this.props.onUpdateClick}
             updateCallback={this.forceUpdate.bind(this)}
             key={element.id}
             {...element}
