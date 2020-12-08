@@ -16,5 +16,6 @@ export default class InputUI extends Component {
     const node = this.refs.input
     const text = node.value.trim()
     this.props.onAddClick(text)
+    node.value = ''
   }
 }

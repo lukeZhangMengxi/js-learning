@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addAction, deleteAction } from './actions/Actions.js'
+import { addAction, deleteAction, updateAction } from './actions/Actions.js'
 
 import InputUI from './components/InputUI.js'
 import OutputList from './components/OutputList.js'
@@ -12,7 +12,11 @@ class App extends Component {
     return (
       <div>
         <InputUI onAddClick={text => dispatch(addAction(text))} />
-        <OutputList elementList={randomName} onDeleteClick={id => dispatch(deleteAction(id))} />
+        <OutputList
+          elementList={randomName}
+          onDeleteClick={id => dispatch(deleteAction(id))}
+          onUpdateClick={(id, text) => dispatch(updateAction(id, text))}
+        />
       </div>
     )
   }

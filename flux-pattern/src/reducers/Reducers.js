@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_TODO, DELETE_TODO } from '../actions/Actions'
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from '../actions/Actions'
 
 function todo(state, action) {
   switch (action.type) {
@@ -20,8 +20,12 @@ function aList(state = [], action) {
         todo(undefined, action)
       ]
     case DELETE_TODO:
-      let indexToDelete = state.map(element => element.id).indexOf(action.id);
+      const indexToDelete = state.map(element => element.id).indexOf(action.id);
       state.splice(indexToDelete, 1);
+      return state;
+    case UPDATE_TODO:
+      const indexToUpdate = state.map(element => element.id).indexOf(action.id);
+      state[indexToUpdate].text = action.text;
       return state;
     default:
       return state;
